@@ -173,13 +173,48 @@
     @keyframes fall {
       to { transform: translateY(110vh) rotate(720deg); opacity: 0; }
     }
+     /* ----- Vùng chứa chạy chữ ----- */
+    .marquee {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      box-sizing: border-box;
+    }
+
+    /* ----- Dòng chữ ----- */
+    .marquee span {
+      display: inline-block;
+      padding-left: 100%;
+      font-size: 16px;
+      color: #fff;
+      animation: scrollText 20s linear infinite;
+    }
+
+    /* ----- Hiệu ứng chạy ngang ----- */
+    @keyframes scrollText {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* ----- Thêm hiệu ứng bóng chữ cho đẹp ----- */
+    .marquee span {
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* ----- (Tuỳ chọn) chạy ngược lại mỗi vòng ----- */
+    .marquee.reverse span {
+      animation-direction: alternate;
+    }
 </style>
 </head>
 <body>
   <header>
     <img src="logo.webp" alt="Logo Sư Đoàn 10">
     <h1>NỘI SAN TUỔI TRẺ SƯ ĐOÀN 10</h1>
-    <p>Khơi dậy tinh thần xung kích, sáng tạo và đoàn kết</p>
+    <div class="marquee">
+       <span>CHÀO MỪNG HỘI NGHỊ TỔNG KẾT CTĐ & PTTN TỪ KHI THÀNH LẬP QUÂN ĐOÀN ĐẾN NAY; PHƯƠNG HƯỚNG, NHIỆM VỤ CTĐ & PTTN GIAI ĐOẠN 2025-2030</span>
+    </div>
   </header>
 
   <nav>
